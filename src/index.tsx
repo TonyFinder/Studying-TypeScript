@@ -3,6 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {student} from "./02/02";
+import {sum} from "./03/03";
+
+let a = sum;
 
 ReactDOM.render(
   <React.StrictMode>
