@@ -5,12 +5,13 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {student} from "./02/02";
 import {sum} from "./03/03";
+import {User} from './06/06.callbacks';
 
 let a = sum;
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <User />
   </React.StrictMode>,
   document.getElementById('root')
 );
