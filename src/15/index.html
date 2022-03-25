@@ -1,0 +1,93 @@
+<script src="axios.js"></script>
+<script src="api.js"></script>
+<script>
+
+    // Пример №4
+    // const promise = new Promise((resolve, reject) => {
+    //     setTimeout(()=> {
+    //         resolve(Math.random())
+    //     }, 1000)
+    // })
+    //
+    // promise.then((data) => console.log(`Promise has resolved 1: ${data}`))
+    // promise.then((data) => console.log(`Promise has resolved 2: ${data}`))
+    //
+    // console.log("finish")
+
+    // Пример №5
+    // let doAfter = (ms) => {
+    //     return new Promise((resolve => {
+    //         setTimeout(()=> {
+    //             resolve(Math.random())
+    //         }, ms*1000)
+    //     }))
+    // }
+
+    // doAfter(2).then(data => console.log(data))
+    // doAfter(3).then(data => console.log(data))
+
+    // Пример №7
+    // let doAfter = (ms) => {
+    //     return new Promise((resolve => {
+    //         setTimeout(()=> {
+    //             resolve(Math.random())
+    //         }, ms*1000)
+    //     }))
+    // }
+    // let promise3 = doAfter(3);
+    // promise3.then( () => console.log('я сработал через 3 секунд') );
+    // promise3.then( () => console.log('и я тоже следом сработал через 3 секунд') );
+    // promise3.then( () => console.log('и я') );
+
+    // Пример №8
+    // let doAfter = (ms) => {
+    //     return new Promise((resolve => {
+    //         setTimeout(() => {
+    //             resolve()
+    //         }, ms * 1000)
+    //     }))
+    // }
+    //
+    // let promise = doAfter(3)
+    //
+    // setTimeout(() => promise.then(() => console.log('I am resolved')), 1000)
+
+    // Пример №9
+    // let promise = new Promise((resolve => {
+    //     let i = 0
+    //     setInterval(() => {
+    //         i++
+    //         resolve(i)
+    //     }, 5000)
+    // }))
+    //
+    // promise.then(data => console.log(data))
+
+    // Пример №15
+    // let pr = new Promise((resolve) => {
+    //     let data = {
+    //         cities: [{title: 'Minsk'}, {title: 'Kiev'}],
+    //         website: 'it-kamasutra.com'
+    //     };
+    //     resolve(data);
+    // });
+    //
+    // pr.then(data => {
+    //     console.log(data);
+    //     return data.website
+    // })
+    //     .then(website => {
+    //         console.log(website);
+    //     })
+
+    // Пример №16
+    api.sendStudentsCountToItKamasutra(20)
+        .then(res => {
+            console.log(res)
+            return res.data
+        })
+        .then(res => {
+            console.log(res)
+        })
+
+</script>

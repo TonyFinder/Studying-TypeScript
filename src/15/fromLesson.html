@@ -1,0 +1,95 @@
+<script>
+    console.log('Lesson 15')
+    //
+    // let axios = {
+    //     get() {
+    //         return new Promise((resolve, reject) => {
+    //             setTimeout(() => {
+    //                 resolve({a: 'Hello', b: 'Message', c: 'Anton'})
+    //             }, 3000)
+    //         })
+    //     }
+    // }
+    //
+    // axios.get()
+    //     .then(res => res.c)
+    //     .then((message) => console.log(message))
+    // // .catch(err => console.warn(err))
+
+    function fetch(url) {
+        return new Promise(((resolve, reject) => {
+            switch (url) {
+                case 'google':
+                    setTimeout(() => resolve('I am from google'), 2000)
+                    break
+                case 'yandex':
+                    setTimeout(() => resolve('I am from yandex'), 3000)
+                    break
+                case 'it-kamasutra':
+                    setTimeout(() => resolve('I am from it-kamasutra'), 1000)
+                    break
+                default:
+                    setTimeout(() => resolve('I am from unknown place'), 4000)
+                    break
+            }
+        }))
+    }
+
+    // // Выполнение в зависимости от таймера
+    // fetch('yandex').then(data => console.log(data))
+    // fetch('it-kamasutra').then(data => console.log(data))
+    // fetch('google').then(data => console.log(data))
+    //
+    // // Последовательное выполнение
+    // fetch('yandex').then(data => {
+    //     console.log(data)
+    //     fetch('it-kamasutra').then(data => {
+    //         console.log(data)
+    //         fetch('google').then(data => console.log(data))
+    //     })
+    // })
+    //
+    // // Реализация более понятная через цепочку then. Последовательное выполнение.
+    // fetch('yandex')
+    //     .then(data => {
+    //         console.log(data)
+    //         return fetch('it-kamasutra')
+    //     })
+    //     .then(data => {
+    //         console.log(data)
+    //         return fetch('google')
+    //     })
+    //     .then(data => console.log(data))
+
+    // Реализация последовательности через async/await
+
+    let makeRequests = async () => {
+        let data1 = await fetch('yandex')
+        console.log(data1)
+        let data2 = await fetch('it-kamasutra')
+        console.log(data2)
+        let data3 = await fetch('google')
+        console.log(data3)
+    }
+
+    // makeRequests()
+
+    // Реализация async/await если нужны одновременные запросы и потом после завершения всех запросов, нужно выввести then
+
+    // let makeRequestAtTheSameTime = () => {
+    //     Promise.all([fetch('yandex'), fetch('it-kamasutra'), fetch('google')])
+    //         .then(data => console.log(data[1]))
+    // }
+    //
+    // makeRequestAtTheSameTime()
+
+    // Чтобы избавиться от then, можно сделать следующим образом
+    let makeRequestAtTheSameTime = async () => {
+        let data = await Promise.all([fetch('yandex'), fetch('it-kamasutra'), fetch('google')])
+        console.log(data)
+    }
+
+    makeRequestAtTheSameTime()
+
+</script>
+
